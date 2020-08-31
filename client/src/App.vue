@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <AppBar></AppBar>
-    <router-view/>
+    <div class="mt-3">
+      <router-view/>  
+    </div>      
   </div>
 </template>
 
