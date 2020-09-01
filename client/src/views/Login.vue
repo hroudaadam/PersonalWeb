@@ -35,6 +35,9 @@
 </template>
 
 <script>
+import apiService from '../helpers/apiService';
+import { mapMutations } from 'vuex';
+import router from '../router/index';
 
 export default {
   name: "Login",
@@ -49,9 +52,26 @@ export default {
     };
   },
   computed: {
-
   },
   methods: {
+    ...mapMutations('authentication', ['setAccessToken', 'setUserRole']),
+    login() {
+      var body = {
+        email: this.email,
+        password: this.password
+      };
+      apiService.post('/login', body)
+      .then( response => {
+        console.log(response);
+        this.setAccessToken(response.accessToken);
+        this.setUserRole(response.userRole);
+        router.push({name:'Home'});
+      })
+      .catch (error => {
+        this.errorMsg = error.message;
+      });
+
+    }
   },
 };
 </script>

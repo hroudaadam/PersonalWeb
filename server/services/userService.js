@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const roles = require('../helpers/roles');
+const {LogicError} = require('../helpers/logicError');
 
 var users = [
     {
@@ -19,15 +20,18 @@ var users = [
 function authenticate(authenticateRequest) {
     var user = users.find(us => us.email === authenticateRequest.email);
     if (!user) {
-        return null;
+        throw new LogicError("Špatný email nebo heslo");
     }
 
     if (user.password == authenticateRequest.password) {
         var token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-        return token;
+        return {
+            userRole: user.role,
+            accessToken: token
+        };
     }
 
-    return null;
+    throw new LogicError("Špatný email nebo heslo");
 };
 
 module.exports = {

@@ -5,14 +5,7 @@ const userService = require('../services/userService');
 
 router.post('/login', function(req, res, next) {
     var response = userService.authenticate(req.body);
-    if (response) {
-      res.json({accessToken: response});
-    }
-    else {
-      res.send();
-    }  
-  });
-  
-  
+    res.json(response);
+  }); 
   
   module.exports = router;

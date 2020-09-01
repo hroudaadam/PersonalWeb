@@ -14,11 +14,13 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown right v-if="isUserLogged">
+          <b-nav-item-dropdown right v-if="isUserLogged" no-caret>
             <!-- Using 'button-content' slot -->
-            <template v-slot:button-content>Uživatel</template>
+            <template v-slot:button-content>
+              <b-icon icon="person-fill"></b-icon>
+            </template>
             <b-dropdown-item href="#">Profil</b-dropdown-item>
-            <b-dropdown-item href="#">Odhlásit</b-dropdown-item>
+            <b-dropdown-item v-on:click="logout">Odhlásit</b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item :to="{name: 'Login'}" v-else>Přihlásit</b-nav-item>
@@ -29,13 +31,16 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "AppBar",
   components: {},
   computed: {
-    ...mapGetters("authentication", ["isUserLogged"]),
+    ...mapGetters('authentication', ['isUserLogged']),
   },
+  methods: {
+    ...mapActions('authentication', ['logout'])
+  }
 };
 </script>
