@@ -1,23 +1,21 @@
+const { post } = require("../controllers/postController");
+
 var posts = [
     {
         postId: 1,
         userId: 1,
         title: 'Krušné hory',
-        publishDate: '01-01-2020',
-        lastEditDate: '02-01-2020',
         content: 'Text text text'
-        // comments
     },
     {
         postId: 2,
         userId: 1,
         title: 'Vysoké tatry',
-        publishDate: '01-01-2020',
-        lastEditDate: '02-01-2020',
         content: 'Text text text text'
-        // comments
     }
 ];
+
+var nextPostId = 3;
 
 function getAll() {
     return posts;
@@ -28,7 +26,19 @@ function get(id) {
     return post;
 }
 
+function create(model, userId) {
+    var newPost = {
+        postId: nextPostId,
+        userId: userId,
+        title: model.title,
+        content: model.content
+    };
+    posts.push(newPost);
+    nextPostId++;
+    return posts.find( po => po.postId == newPost.postId);
+}
+
 
 module.exports = {
-    getAll, get
+    getAll, get, create
 }

@@ -16,6 +16,11 @@ router.get('/', function(req, res, next) {
     var response = postService.get(id);
     res.json(response);
   });
+
+  router.post('/', authorize(roles.Admin), function(req, res, next) {
+    var response = postService.create(req.body, req.user.userId);
+    res.json(response);
+  });
   
   
   module.exports = router;
