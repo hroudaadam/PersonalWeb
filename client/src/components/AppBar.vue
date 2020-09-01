@@ -7,8 +7,8 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#">Deník</b-nav-item>
-          <b-nav-item href="#">Cestování</b-nav-item>
+          <b-nav-item :to="{name: 'Diary'}">Deník</b-nav-item>
+          <b-nav-item :to="{name: 'Travel'}">Cestování</b-nav-item>
           <b-nav-item href="#" disabled>Programování</b-nav-item>
         </b-navbar-nav>
 

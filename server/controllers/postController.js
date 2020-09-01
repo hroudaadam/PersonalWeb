@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     res.json(response);
   });
   
-  router.get('/:id', authorize(roles.Admin), function(req, res, next) {  
+  router.get('/:id', function(req, res, next) {  
     var id = parseInt(req.params.id);
     var response = postService.get(id);
     res.json(response);

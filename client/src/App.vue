@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <AppBar></AppBar>
-    <div class="mt-3">
-      <router-view/>  
-    </div>      
+    <b-container class="mt-4">
+      <router-view></router-view>
+    </b-container>     
   </div>
 </template>
 

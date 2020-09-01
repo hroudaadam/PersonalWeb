@@ -2,6 +2,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home';
 import Login from '../views/Login';
+import Diary from '../views/Diary';
+import Travel from '../views/Travel';
+import PostDetail from '../views/PostDetail';
 
 Vue.use(VueRouter);
 
@@ -15,6 +18,22 @@ Vue.use(VueRouter);
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/diary',
+    name: 'Diary',
+    component: Diary
+  },
+  {
+    path: '/travel',
+    name: 'Travel',
+    component: Travel
+  },
+  {
+    path: '/posts/:id',
+    name: 'PostDetail',
+    component: PostDetail,
+    props: true
   }
 ];
 
