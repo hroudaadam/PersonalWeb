@@ -14,7 +14,7 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown right v-if="isUserLogged" no-caret>
+          <b-nav-item-dropdown right v-if="isLogged" no-caret>
             <!-- Using 'button-content' slot -->
             <template v-slot:button-content>
               <b-icon icon="person-fill"></b-icon>
@@ -37,7 +37,7 @@ export default {
   name: "AppBar",
   components: {},
   computed: {
-    ...mapGetters('authentication', ['isUserLogged']),
+    ...mapGetters('authentication', ['isLogged']),
   },
   methods: {
     ...mapActions('authentication', ['logout'])

@@ -15,6 +15,9 @@ export default {
         }
     },
     getters: {
+        isLogged(state) {
+            return !!state.accessToken;
+        },
         isUserLogged(state) {
             return !!state.accessToken && state.userRole === userRoles.user;
         },

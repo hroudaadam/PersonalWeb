@@ -4,7 +4,7 @@
       class="mx-auto"
       id="carousel-1"
       v-model="slide"
-      :interval="2000"
+      :interval="2500"
       indicators
       background="#ababab"
       img-width="720"
