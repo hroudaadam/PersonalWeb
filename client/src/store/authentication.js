@@ -1,4 +1,5 @@
 import router from '../router/index';
+import userRoles from '../helpers/userRoles';
 
 export default {
     namespaced: true,
@@ -15,7 +16,10 @@ export default {
     },
     getters: {
         isUserLogged(state) {
-            return !!state.accessToken;
+            return !!state.accessToken && state.userRole === userRoles.user;
+        },
+        isAdminLogged(state) {
+            return !!state.accessToken && state.userRole === userRoles.admin;
         }
     },
     mutations: {

@@ -5,6 +5,7 @@ import Login from '../views/Login';
 import Diary from '../views/Diary';
 import Travel from '../views/Travel';
 import PostDetail from '../views/PostDetail';
+import PostCreate from '../views/PostCreate';
 
 Vue.use(VueRouter);
 
@@ -34,6 +35,11 @@ Vue.use(VueRouter);
     name: 'PostDetail',
     component: PostDetail,
     props: true
+  },
+  {
+    path: '/posts/create',
+    name: 'PostCreate',
+    component: PostCreate
   }
 ];
 

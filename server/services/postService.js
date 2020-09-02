@@ -10,7 +10,7 @@ var posts = [
     {
         postId: 2,
         userId: 1,
-        title: 'Vysoké tatry',
+        title: 'Vysoké Tatry',
         content: 'Text text text text'
     }
 ];

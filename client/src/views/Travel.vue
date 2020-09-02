@@ -1,7 +1,7 @@
 <template>
   <div class="travel">
     <PageHeader v-bind:title="'Cestování'">
-        <b-button variant="info" :to="{name: 'CreatePost'}">Přidat nový</b-button>
+        <b-button variant="info" :to="{name: 'PostCreate'}">Přidat nový</b-button>
     </PageHeader>
     <b-list-group>
       <PostListItem v-bind:post="post" v-bind:key="post.postId" v-for="post in posts"></PostListItem>
