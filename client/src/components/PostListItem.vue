@@ -5,8 +5,9 @@
         </div>
 
         <p
-          class="mb-1"
-        >{{post.content}}</p>
+          class="mb-1" v-html="post.content"
+        >
+        </p>
 
       </b-list-group-item>
 </template>

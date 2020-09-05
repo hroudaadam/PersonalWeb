@@ -2,8 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home';
 import Login from '../views/Login';
-import Diary from '../views/Diary';
-import Travel from '../views/Travel';
+import Posts from '../views/Posts';
 import PostDetail from '../views/PostDetail';
 import PostCreate from '../views/PostCreate';
 
@@ -21,14 +20,9 @@ Vue.use(VueRouter);
     component: Login
   },
   {
-    path: '/diary',
-    name: 'Diary',
-    component: Diary
-  },
-  {
-    path: '/travel',
-    name: 'Travel',
-    component: Travel
+    path: '/posts',
+    name: 'Posts',
+    component: Posts
   },
   {
     path: '/posts/:id',

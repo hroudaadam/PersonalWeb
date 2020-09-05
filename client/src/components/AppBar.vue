@@ -7,8 +7,8 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item :to="{name: 'Diary'}">Deník</b-nav-item>
-          <b-nav-item :to="{name: 'Travel'}">Cestování</b-nav-item>
+          <b-nav-item :to="{name: 'Posts'}">Příspěvky</b-nav-item>
+          <b-nav-item :to="{name: 'Travel'}" disabled>Cestování</b-nav-item>
           <b-nav-item href="#" disabled>Programování</b-nav-item>
         </b-navbar-nav>
 
@@ -32,6 +32,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import router from '../router/index';
 
 export default {
   name: "AppBar",
@@ -40,7 +41,11 @@ export default {
     ...mapGetters('authentication', ['isLogged']),
   },
   methods: {
-    ...mapActions('authentication', ['logout'])
+    ...mapActions('authentication', ['storeLogout']),
+    logout() {
+      this.storeLogout();
+      router.push({name: 'Login'});
+    }
   }
 };
 </script>

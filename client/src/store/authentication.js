@@ -1,17 +1,23 @@
-import router from '../router/index';
 import userRoles from '../helpers/userRoles';
 
 export default {
     namespaced: true,
     state: {
-        accessToken: null,
-        userRole: null
+        accessToken: localStorage.getItem('accessToken') || null,
+        userRole: localStorage.getItem('userRole') || null
     },
     actions: {
-        logout({commit}) {
+        storeLogout({ commit }) {
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('userRole');
             commit('setAccessToken', null);
             commit("setUserRole", null);
-            router.push({name: 'Home'});
+        },
+        storeLogin({ commit }, accessToken, userRole) {
+            commit('setAccessToken', accessToken);
+            commit("setUserRole", userRole);
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('userRole', userRole);
         }
     },
     getters: {

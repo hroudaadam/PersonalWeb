@@ -1,6 +1,6 @@
 <template>
-  <div class="travel">
-    <PageHeader v-bind:title="'Cestování'">
+  <div class="Posts">
+    <PageHeader v-bind:title="'Příspěvky'">
         <b-button variant="info" :to="{name: 'PostCreate'}">Přidat nový</b-button>
     </PageHeader>
     <b-list-group>
@@ -15,7 +15,7 @@ import PostListItem from "../components/PostListItem";
 import PageHeader from "../components/PageHeader";
 
 export default {
-  name: "Travel",
+  name: "Posts",
   components: {
     PostListItem,
     PageHeader

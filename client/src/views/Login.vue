@@ -36,7 +36,7 @@
 
 <script>
 import apiService from '../helpers/apiService';
-import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 import router from '../router/index';
 
 export default {
@@ -54,7 +54,7 @@ export default {
   computed: {
   },
   methods: {
-    ...mapMutations('authentication', ['setAccessToken', 'setUserRole']),
+    ...mapActions('authentication', ['storeLogin']),
     login() {
       var body = {
         email: this.email,
@@ -62,9 +62,11 @@ export default {
       };
       apiService.post('/login', body)
       .then( response => {
-        console.log(response);
-        this.setAccessToken(response.accessToken);
-        this.setUserRole(response.userRole);
+        /* this.setAccessToken(response.accessToken);
+        this.setUserRole(response.userRole);s
+        localStorage.setItem('accessToken', response.accessToken);
+        localStorage.setItem('userRole', response.userRole); */
+        this.storeLogin(response.accessToken, response.userRole);
         router.push({name:'Home'});
       })
       .catch (error => {

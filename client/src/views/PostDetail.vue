@@ -8,8 +8,7 @@
           </div>
           <b-card-sub-title class="mb-2">...</b-card-sub-title>
 
-          <b-card-text v-html="post.content"> 
-          </b-card-text>
+          <b-card-text v-html="post.content"></b-card-text>
         </b-card-body>
       </b-card>
     </div>

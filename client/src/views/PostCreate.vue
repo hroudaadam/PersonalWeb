@@ -12,7 +12,7 @@
         </b-form-group>
 
         <b-alert show variant="danger" v-if="!!this.errorMsg">{{this.errorMsg}}</b-alert>
-        <b-button type="submit" v-on:click="createGroup" variant="primary">Vytvořit</b-button>
+        <b-button type="submit" v-on:click="createGroup" variant="info">Vytvořit</b-button>
       </b-form>
     </b-card>
   </div>
