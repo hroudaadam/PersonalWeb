@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const roles = require('../helpers/roles');
-const {LogicError} = require('../helpers/logicError');
+const { roles } = require('../helpers/enums');
+const { LogicError } = require('../helpers/logicError');
 
 var users = [
     {

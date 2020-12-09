@@ -13,11 +13,11 @@ export default {
             commit('setAccessToken', null);
             commit("setUserRole", null);
         },
-        storeLogin({ commit }, accessToken, userRole) {
-            commit('setAccessToken', accessToken);
-            commit("setUserRole", userRole);
-            localStorage.setItem('accessToken', accessToken);
-            localStorage.setItem('userRole', userRole);
+        storeLogin({ commit }, model) {
+            commit('setAccessToken', model.accessToken);
+            commit("setUserRole", model.userRole);
+            localStorage.setItem('accessToken', model.accessToken);
+            localStorage.setItem('userRole', model.userRole);
         }
     },
     getters: {

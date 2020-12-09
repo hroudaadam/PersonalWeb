@@ -62,11 +62,7 @@ export default {
       };
       apiService.post('/login', body)
       .then( response => {
-        /* this.setAccessToken(response.accessToken);
-        this.setUserRole(response.userRole);s
-        localStorage.setItem('accessToken', response.accessToken);
-        localStorage.setItem('userRole', response.userRole); */
-        this.storeLogin(response.accessToken, response.userRole);
+        this.storeLogin(response);
         router.push({name:'Home'});
       })
       .catch (error => {

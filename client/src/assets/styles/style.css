@@ -1,0 +1,42 @@
+:root {
+    --primary: #000000
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.appbar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.5px solid gray;
+    height: 50px;
+    align-items: center;
+    padding: 10px;
+}
+
+.appbar__brand {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: auto 0;
+}
+
+.appbar__nav {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.appbar__nav-item {
+    font-size: 0.9em;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.appbar__nav-item:hover {
+    text-decoration: none;
+    color: #058ea0
+}

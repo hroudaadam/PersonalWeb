@@ -1,5 +1,3 @@
-const { post } = require("../controllers/postController");
-
 var posts = [
     {
         postId: 1,
@@ -35,7 +33,7 @@ function create(model, userId) {
     };
     posts.push(newPost);
     nextPostId++;
-    return posts.find( po => po.postId == newPost.postId);
+    return posts.find(po => po.postId == newPost.postId);
 }
 
 
