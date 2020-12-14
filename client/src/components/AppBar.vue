@@ -5,7 +5,7 @@
       </h1>
 
       <nav class="appbar__nav">
-        <router-link class="appbar__nav-item" to="/about">O mně</router-link>
+        <router-link class="appbar__nav-item appbar__nav-item--active" to="/about">O mně</router-link>
         <router-link class="appbar__nav-item" to="/posts">Příspěvky</router-link>
         <router-link class="appbar__nav-item" to="/about">Hračky</router-link>
         <router-link class="appbar__nav-item" to="/">API</router-link>
