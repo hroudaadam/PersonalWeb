@@ -6,6 +6,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/styles/style.css';
+import './assets/styles/reset.css';
 
 Vue.config.productionTip = false
 

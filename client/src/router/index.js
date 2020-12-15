@@ -31,16 +31,16 @@ Vue.use(VueRouter);
     component: Posts
   },
   {
+    path: '/posts/create',
+    name: 'PostCreate',
+    component: PostCreate
+  },
+  {
     path: '/posts/:id',
     name: 'PostDetail',
     component: PostDetail,
     props: true
   },
-  {
-    path: '/posts/create',
-    name: 'PostCreate',
-    component: PostCreate
-  }
 ];
 
 const router = new VueRouter({

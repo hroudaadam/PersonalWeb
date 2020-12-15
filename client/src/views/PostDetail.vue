@@ -12,7 +12,6 @@
         </b-card-body>
       </b-card>
     </div>
-    <b-alert show variant="danger" v-if="errorMsg" v-html="errorMsg"></b-alert>
   </div>
 </template>
 
