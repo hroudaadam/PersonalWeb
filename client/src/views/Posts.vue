@@ -1,48 +1,51 @@
 <template>
-  <div class="Posts">
-    <PageHeader v-bind:title="'Příspěvky'">
-        <b-button variant="info" :to="{name: 'PostCreate'}">Přidat nový</b-button>
-    </PageHeader>
-    <b-list-group>
-      <PostListItem v-bind:post="post" v-bind:key="post.postId" v-for="post in posts"></PostListItem>
-    </b-list-group>
+  <div class="posts">
+    <h2 class="posts__title header__2 header--center">Příspěvky</h2>
+    <div class="posts__list">
+      <PostListItem
+        v-bind:key="post.id"
+        v-for="post in posts"
+        v-bind:post="post"
+      ></PostListItem>
+    </div>
   </div>
 </template>
 
 <script>
-import apiService from "../helpers/apiService";
-import PostListItem from "../components/PostListItem";
-import PageHeader from "../components/PageHeader";
+import PostListItem from '@/components/PostListItem';
 
 export default {
   name: "Posts",
   components: {
-    PostListItem,
-    PageHeader
+    PostListItem
   },
   data() {
     return {
-      posts: null,
-      errorMsg: null,
+      posts: [
+        {
+          id: 1,
+          title: "Jizerské a Lužické hory 2. 7. - 6. 7. 2016",
+        },
+        {
+          id: 2,
+          title: "Javorníky 27. 7. - 31. 7. 2016",
+        },
+        {
+          id: 3,
+          title: "Španělsko 26. 8. - 3. 9. 2016",
+        },
+        {
+          id: 4,
+          title: "Vánoční akademie 21. 12. 2016",
+        },
+        {
+          id: 5,
+          title: "Test",
+        },
+      ],
     };
   },
-  methods: {
-    getPosts() {
-      this.posts = null;
-      this.errorMsg = null;
-
-      apiService
-        .get("/posts")
-        .then((response) => {
-          this.posts = response;
-        })
-        .catch((error) => {
-          this.errorMsg = error.message;
-        });
-    },
-  },
-  mounted() {
-    this.getPosts();
-  },
+  methods: {},
+  mounted() {},
 };
 </script>

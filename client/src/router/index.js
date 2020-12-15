@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home';
 import Login from '../views/Login';
+import About from '../views/About';
 import Posts from '../views/Posts';
 import PostDetail from '../views/PostDetail';
 import PostCreate from '../views/PostCreate';
@@ -13,6 +14,11 @@ Vue.use(VueRouter);
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
   },
   {
     path: '/login',

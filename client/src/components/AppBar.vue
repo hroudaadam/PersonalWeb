@@ -5,40 +5,12 @@
       </h1>
 
       <nav class="appbar__nav">
-        <router-link class="appbar__nav-item appbar__nav-item--active" to="/about">O mně</router-link>
-        <router-link class="appbar__nav-item" to="/posts">Příspěvky</router-link>
-        <router-link class="appbar__nav-item" to="/about">Hračky</router-link>
-        <router-link class="appbar__nav-item" to="/">API</router-link>
+        <router-link class="appbar__nav-item" to="/about" active-class="appbar__nav-item--active">O mně</router-link>
+        <router-link class="appbar__nav-item" to="/posts" active-class="appbar__nav-item--active">Příspěvky</router-link>
+        <router-link class="appbar__nav-item" to="/playground" active-class="appbar__nav-item--active">Hřiště</router-link>
+        <router-link class="appbar__nav-item" to="/api" active-class="appbar__nav-item--active">API</router-link>
       </nav>
     </div>
-
-    <!-- <b-navbar toggleable="lg" type="dark" variant="dark" fixed="top" sticky>
-      <b-navbar-brand class="mr-5" :to="{name:'Home'}">Adam Hrouda</b-navbar-brand>
-
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item>O mně</b-nav-item>
-          <b-nav-item :to="{name: 'Posts'}">Příspěvky</b-nav-item>
-          <b-nav-item >Ostatní</b-nav-item>
-          <b-nav-item >API</b-nav-item>
-        </b-navbar-nav>
-
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown right v-if="isLogged" no-caret>
-            <template v-slot:button-content>
-              <b-icon icon="person-fill"></b-icon>
-            </template>
-            <b-dropdown-item href="#">Profil</b-dropdown-item>
-            <b-dropdown-item v-on:click="logout">Odhlásit</b-dropdown-item>
-          </b-nav-item-dropdown>
-
-          <b-nav-item :to="{name: 'Login'}" v-else>Přihlásit</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar> -->
-  
 </template>
 
 <script>

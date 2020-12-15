@@ -12,9 +12,9 @@
         </div>         
     </div>
 
-    <div class="recent-posts">
-      <h2 class="recent-posts__title header__2 header--center">Nedávné příspěvky</h2>
-      <div class="recent-posts__list posts-list">
+    <div class="posts">
+      <h2 class="posts__title header__2 header--center">Nedávné příspěvky</h2>
+      <div class="posts__list">
         <PostListItem v-bind:key="post.id" v-for="post in posts" v-bind:post="post"></PostListItem>
       </div>
     </div>
@@ -48,6 +48,10 @@ export default {
         {
           id: 4,
           title: "Vánoční akademie 21. 12. 2016"
+        },
+        {
+          id: 5,
+          title: "Test"
         },
       ]
     }
