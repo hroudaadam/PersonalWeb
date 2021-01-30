@@ -1,23 +1,28 @@
 <template>
-  <div class="posts">
-    <h2 class="posts__title header__2 header--center">Příspěvky</h2>
+  <div>
+    <PageHeader>
+      Příspěvky
+    </PageHeader>
+
     <div class="posts__list">
-      <PostListItem
+      <PostItem
         v-bind:key="post.id"
         v-for="post in posts"
         v-bind:post="post"
-      ></PostListItem>
+      ></PostItem>
     </div>
   </div>
 </template>
 
 <script>
-import PostListItem from '@/components/PostListItem';
+import PostItem from "@/components/PostItem";
+import PageHeader from "@/components/PageHeader";
 
 export default {
   name: "Posts",
   components: {
-    PostListItem
+    PostItem,
+    PageHeader
   },
   data() {
     return {

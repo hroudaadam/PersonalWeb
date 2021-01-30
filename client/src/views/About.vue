@@ -1,13 +1,16 @@
 <template>
   <div>
-    <h2 class="header__2 header--center">O mně</h2>
+    <PageHeader>O mně</PageHeader>
   </div>
 </template>
 
 <script>
+import PageHeader from "@/components/PageHeader";
+
 export default {
   name: "About",
   components: {
+    PageHeader
   },
   data() {
     return {};

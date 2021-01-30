@@ -1,14 +1,14 @@
 <template>
   <div class="appbar">
-      <h1 class="appbar__brand">
+      <span class="brand">
         <router-link to="/">hrouda.adam</router-link>
-      </h1>
+      </span>
 
-      <nav class="appbar__nav">
-        <router-link class="appbar__nav-item" to="/about" active-class="appbar__nav-item--active">O mně</router-link>
-        <router-link class="appbar__nav-item" to="/posts" active-class="appbar__nav-item--active">Příspěvky</router-link>
-        <router-link class="appbar__nav-item" to="/playground" active-class="appbar__nav-item--active">Hřiště</router-link>
-        <router-link class="appbar__nav-item" to="/api" active-class="appbar__nav-item--active">API</router-link>
+      <nav class="nav">
+        <router-link class="nav-item" to="/about" active-class="active">O mně</router-link>
+        <router-link class="nav-item" to="/posts" active-class="active">Příspěvky</router-link>
+        <router-link class="nav-item" to="/playground" active-class="active">Hřiště</router-link>
+        <router-link class="nav-item" to="/api" active-class="active">API</router-link>
       </nav>
     </div>
 </template>
@@ -32,3 +32,56 @@ export default {
   },
 };
 </script>
+
+<style>
+
+.appbar {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+    color: var(--white);
+    background-color: var(--color-1);
+    position: sticky;
+    top: 0;
+}
+
+.brand {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: auto 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.nav-item {
+    font-size: 1em;
+    display: block;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    font-weight: 700;
+}
+
+.active {
+    font-weight: 700;
+}
+
+@media screen and (max-width: 550px) {
+    .nav {
+        display: none;
+    }
+
+    .appbar {
+      justify-content: flex-start;
+      padding: 0 10px;
+    }
+}
+
+</style>

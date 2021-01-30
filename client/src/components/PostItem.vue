@@ -23,3 +23,22 @@ export default {
   methods: {},
 };
 </script>
+
+<style>
+.posts__item {
+    display: flex;
+    padding: 8px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+}
+
+.posts__item-image {
+    margin: 0 25px 0 0;
+}
+
+.posts__item-title {
+    margin: 15px 0 0 0;
+}
+</style>

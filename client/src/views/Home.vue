@@ -1,64 +1,60 @@
 <template>
   <div>
-    <div class="welcome-header">
-      <img class="welcome-header__photo" src="../assets/images/home1.png" alt="">
-        <div class="welcome-header__text"> 
-          <p class="welcome-header__title">
-          Zdravím! Jmenuji se Adam Hrouda a jsem programátor.
-        </p>
-        <p class="welcome-header__desc">
-          Donec iaculis gravida nulla. Pellentesque pretium lectus id turpis. Duis pulvinar. Morbi scelerisque luctus velit. Mauris elementum mauris vitae tortor.
-        </p>
-        </div>         
-    </div>
+    <!-- <PageHeader> Nedávné příspěvky </PageHeader> -->
 
-    <div class="posts">
-      <h2 class="posts__title header__2 header--center">Nedávné příspěvky</h2>
-      <div class="posts__list">
-        <PostListItem v-bind:key="post.id" v-for="post in posts" v-bind:post="post"></PostListItem>
-      </div>
-    </div>
+    <!-- <div class="posts__list">
+      <PostItem
+        v-bind:key="post.id"
+        v-for="post in posts"
+        v-bind:post="post"
+      ></PostItem>
+    </div> -->
+    <Welcome></Welcome>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import PostListItem from '@/components/PostListItem';
+// import PostItem from "@/components/PostItem";
+// import PageHeader from "../components/PageHeader.vue";
+import Welcome from "@/components/Welcome";
 
 export default {
   name: "Home",
   components: {
-    PostListItem
+    // PostItem,
+    // PageHeader,
+    Welcome
   },
   data() {
     return {
       posts: [
         {
           id: 1,
-          title: "Jizerské a Lužické hory 2. 7. - 6. 7. 2016"
+          title: "Jizerské a Lužické hory 2. 7. - 6. 7. 2016",
         },
         {
           id: 2,
-          title: "Javorníky 27. 7. - 31. 7. 2016"
+          title: "Javorníky 27. 7. - 31. 7. 2016",
         },
         {
           id: 3,
-          title: "Španělsko 26. 8. - 3. 9. 2016"
+          title: "Španělsko 26. 8. - 3. 9. 2016",
         },
         {
           id: 4,
-          title: "Vánoční akademie 21. 12. 2016"
+          title: "Vánoční akademie 21. 12. 2016",
         },
         {
           id: 5,
-          title: "Test"
+          title: "Test",
         },
-      ]
-    }
+      ],
+    };
   },
 };
 </script>
 
 <style>
-
 </style>

@@ -1,6 +1,8 @@
 /client/node_modules
+/client/package-lock.json
 
-/server/node_modules
+/personal-web/node_modules
+/personal-web/package-lock.json
 
 
 # local env files
