@@ -40,7 +40,7 @@ Vue.use(VueRouter);
     name: 'PostDetail',
     component: PostDetail,
     props: true
-  },
+  }
 ];
 
 const router = new VueRouter({

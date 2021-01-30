@@ -1,6 +1,12 @@
 <template>
     <div class="page-header">
-      <slot></slot>
+      <div></div>
+      <p class="text">
+        <slot></slot>
+      </p>
+      <div>
+        <slot name="button"></slot>
+      </div>
     </div>
 </template>
 
@@ -12,8 +18,14 @@ export default {
 
 <style>
   .page-header {
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .text {
     font-size: 1.6em;
     text-align: center;
-    margin: 10px 0;
+    font-weight: 500;
   }
 </style>

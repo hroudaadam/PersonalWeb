@@ -1,6 +1,6 @@
 <template>
   <div class="welcome">
-    <img class="photo" src="../assets/images/profile.jpg" alt="" />
+    <img class="photo" src="../assets/images/profile1.jpg" alt="" />
     <p class="title">Vítejte na mém webu! Jmenuji se Adam Hrouda.</p>
     <div class="text-container">
       <p class="desc">
@@ -13,21 +13,22 @@
       </p>
     </div>
     <div>
-      <button class="link-button">
+      <a class="link" target="_blank" href="//www.github.com/hroudaadam">
         <font-awesome-icon :icon="['fab', 'github']" />
-      </button>
-      <button class="link-button">
+      </a>
+      <a class="link" target="_blank" href="//www.linkedin.com/in/adam-hrouda-574140175/">
         <font-awesome-icon :icon="['fab', 'linkedin-in']" />
-      </button>
-      <button class="link-button">
+      </a>
+      <a class="link" target="_blank" href="//www.instagram.com/adam_hrouda/">
         <font-awesome-icon :icon="['fab', 'instagram']" />
-      </button>
-      <button class="link-button">
+      </a>
+      <a class="link" target="_blank" href="//www.facebook.com/adam.hrouda">
         <font-awesome-icon :icon="['fab', 'facebook']" />
-      </button>
+      </a>
     </div>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -70,15 +71,21 @@ export default {
   max-width: 690px;
 }
 
-.link-button {
-  font-size: 1.8em;
+.link {
+  display: inline-block;
+  font-size: 1.8rem;
   padding: 0 5px;
   background-color: var(--white);
   border: none;
   margin: 0 5px;
 }
 
-.link-button:focus {
+.link:hover {
+  outline: none;
+  transform: scale(1.1);
+}
+
+.link:focus {
   outline: none;
 }
 </style>

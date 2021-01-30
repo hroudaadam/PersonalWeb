@@ -22,9 +22,8 @@ export default {
 
 <style scoped>
 .content {
-    max-width: 1500px;
+    max-width: 1200px;
     margin: 0 auto 0 auto;
-    padding: 20px 10px 0 10px;
-    height: calc(100vh - 50px);
+    padding: 20px 10px 20px 10px;
 }
 </style>
