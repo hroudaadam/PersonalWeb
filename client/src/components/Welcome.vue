@@ -59,11 +59,14 @@ export default {
 }
 
 .title {
-  font-size: 2em;
+  font-size: 2rem;
+  margin: 0 0 10px 0;
 }
 
 .desc {
   color: var(--color-2);
+  margin: 0 0 20px 0;
+  line-height: 1.5rem;
 }
 
 .text-container {
@@ -83,9 +86,5 @@ export default {
 .link:hover {
   outline: none;
   transform: scale(1.1);
-}
-
-.link:focus {
-  outline: none;
 }
 </style>

@@ -1,4 +1,4 @@
-import store from '../store';
+import store from '../store/index';
 
 async function get(specUrl) {
     return httpRequest('GET', specUrl);
@@ -16,8 +16,11 @@ async function put(specUrl, body) {
     return httpRequest('PUT', specUrl, body);
 }
 
+// general HTTP request
 async function httpRequest(method, specUrl, body=null)
 {
+    // store.commit('setLoading', true);
+
     var stringBody = null;
     if (body) {
         stringBody = JSON.stringify(body, replacer)
@@ -28,33 +31,46 @@ async function httpRequest(method, specUrl, body=null)
         mode: "cors",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + store.state.authentication.accessToken
+            "Authorization": "Bearer " + store.state.accessToken
         },
         body: stringBody,
     })
     .catch(() => {
-        throw new Error('Vyskytla se chyba');
+        raiseError({error: 'Vyskytla se chyba', detail: null});
+    })
+    .finally(() => {
+        // store.commit('setLoading', false);
     });
 
-    if (response.status == 200 || response.status == 201 ) {
-        return response.json();
+    switch (response.status) {
+        case 200: case 201: 
+            return response.json();           
+        case 204:
+            return null;
+        case 401:
+            raiseError({error: 'Neautorizovaný požadavek', detail: null});
+            break;
+        case 403:
+            raiseError({error: 'Nedostatečná oprávnění', detail: null});
+            break
+        default:
+            var error = await response.json();
+            raiseError(error);
+            break;
     }
-    if (response.status == 204) {
-        return response.text();
-    }
-    else {
-        var error = await response.json();
-        var errorMsg = error.message;
-        throw new Error(errorMsg);
-    }
+}
+
+function raiseError(errObj) {
+    // store.commit('setErrorMsg', errObj);
+    throw new Error();
 }
 
 function replacer(key, value) {
     switch (key) {
         case "wage": case "spaces":
-            return +value  
+            return +value;  
         default:
-            return value
+            return value;
     }
 }
 

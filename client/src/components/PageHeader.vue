@@ -24,7 +24,7 @@ export default {
     align-items: center;
   }
   .text {
-    font-size: 1.6em;
+    font-size: 1.8em;
     text-align: center;
     font-weight: 500;
   }

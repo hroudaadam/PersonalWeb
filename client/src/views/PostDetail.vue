@@ -1,48 +1,36 @@
 <template>
-  <div class="postDetail">
-    <div v-if="!!this.post">
-      <b-card no-body>
-        <b-card-body>
-          <div class="d-flex w-100 justify-content-between">
-            <b-card-title>{{post.title}}</b-card-title>
-          </div>
-          <b-card-sub-title class="mb-2">...</b-card-sub-title>
-
-          <b-card-text v-html="post.content"></b-card-text>
-        </b-card-body>
-      </b-card>
+  <div class="detail-container" v-if="post">
+    <PageHeader>
+      {{post.title}}
+    </PageHeader>
+    <div class="ql-editor" v-html="post.content">
     </div>
   </div>
 </template>
 
 <script>
-import apiService from "../helpers/apiService";
+import { mapGetters } from 'vuex';
+import PageHeader from "@/components/PageHeader";
 
 export default {
   name: "PostDetail",
-  components: {},
+  components: {
+    PageHeader
+  },
   props: {
     id: Number,
   },
   data() {
     return {
-      post: null,
-      errorMsg: null,
+      post: null
     };
+  },
+  computed: {
+    ...mapGetters(["getPostById"])
   },
   methods: {
     getPost() {
-      this.post = null;
-      this.errorMsg = null;
-
-      apiService
-        .get("/posts/" + this.id.toString())
-        .then((response) => {
-          this.post = response;
-        })
-        .catch((error) => {
-          this.errorMsg = error.message;
-        });
+      this.post = this.getPostById(this.id);
     },
   },
   mounted() {
@@ -50,3 +38,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+</style>
+

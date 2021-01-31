@@ -20,50 +20,26 @@
 </template>
 
 <script>
-// import PostItem from "@/components/PostItem";
 import PostTile from "@/components/PostTile";
+import { mapState } from "vuex";
 import PageHeader from "@/components/PageHeader";
 
 export default {
   name: "Posts",
   components: {
-    // PostItem,
     PageHeader,
     PostTile,
   },
   data() {
     return {
-      posts: [
-        {
-          id: 1,
-          title: "Lužické hory 2. 7. - 6. 7. 2016",
-          photo: "home2",
-        },
-        {
-          id: 2,
-          title: "Javorníky 27. 7. - 31. 7. 2016",
-          photo: "home2",
-        },
-        {
-          id: 3,
-          title: "Španělsko 26. 8. - 3. 9. 2016",
-          photo: "home3",
-        },
-        {
-          id: 4,
-          title: "Vánoční akademie 21. 12. 2016",
-          photo: "home3",
-        },
-        {
-          id: 5,
-          title: "Test",
-          photo: "home4",
-        },
-      ],
     };
   },
-  methods: {},
+  methods: {
+  },
   mounted() {},
+  computed: {
+    ...mapState(["posts"])
+  },
 };
 </script>
 

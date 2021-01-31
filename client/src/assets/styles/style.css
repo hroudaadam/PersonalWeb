@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 :root {
-    --black: #000000;
-    --white: #ffffff;
+    --color-b: #000000;
+    --color-w: #ffffff;
 
     --color-1: #0D1B2A;
     --color-2: #1B263B;
@@ -16,26 +16,55 @@
 
 body {
     font-family: var(--font-1);
-    color: var(--black);
-    font-size: 1rem;
+    color: var(--color-b);
 }
 
-.button {
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    padding: 5px 15px;
-    border-radius: 3px;
-    background-color: var(--color-5);
-    color: var(--black);
+.mr-2 {
+    margin-right: 5px;
 }
 
-.button:focus {
-    outline: none;
+
+.ql-editor {
+    font-family: var(--font-1) !important;
+    font-size: 1rem !important;
+    color: var(--black) !important;
 }
 
-.button:active {
-    transform: scale(0.99);
+.ql-editort p {
+    margin-bottom: 5px;
+  }
+  
+.ql-editor a {
+    color: #4648f7;
+    text-decoration: underline;
+}
+
+.ql-editor pre {
+    font-size: 1.2em;
+    background-color: inherit !important;
+    color: var(--color-b) !important;
+}
+
+.ql-editor .ql-video {
+    margin: 0 auto;
+    display: block;
+    width: 400px;
+}
+
+.ql-editor img {
+    margin: 10px auto;
+    display: block;
+    width: 100%;
+    max-width: 400px !important;
+    height: auto;
+}
+
+.quill-editor {
+    height: 100% !important;
+}
+
+.ql-container {
+    height: calc(100% - 41px) !important;
 }
 
 

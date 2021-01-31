@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home';
-import Login from '../views/Login';
 import About from '../views/About';
 import Posts from '../views/Posts';
 import PostDetail from '../views/PostDetail';
 import PostCreate from '../views/PostCreate';
+import NotFound from '../views/NotFound';
 
 Vue.use(VueRouter);
 
@@ -19,11 +19,6 @@ Vue.use(VueRouter);
     path: '/about',
     name: 'About',
     component: About
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
   },
   {
     path: '/posts',
@@ -40,6 +35,15 @@ Vue.use(VueRouter);
     name: 'PostDetail',
     component: PostDetail,
     props: true
+  },
+  {
+    path: '/not-found',
+    name: "NotFound",
+    component: NotFound
+  },
+  {
+    path: '*',
+    redirect: {name: "NotFound"}
   }
 ];
 

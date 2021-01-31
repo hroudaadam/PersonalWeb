@@ -17,3 +17,7 @@ a:hover {
     text-decoration: inherit;
     color: inherit;
 }
+
+*:focus {
+    outline: none;
+}

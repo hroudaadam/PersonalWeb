@@ -51,13 +51,14 @@ export default {
   position: sticky;
   top: 0;
   height: 50px;
+  z-index: 3;
 }
 
 .appbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--white);
+  color: var(--color-w);
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -79,7 +80,7 @@ export default {
 }
 
 .nav-item {
-  font-size: 1em;
+  font-size: 0.9rem;
   display: block;
   text-decoration: none;
 }

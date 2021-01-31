@@ -1,10 +1,20 @@
 <template>
-  <div class="post-tile">
-    <img
-      class="photo"
-      :src="require(`@/assets/images/${post.photo}.png`)"
-      alt=""
-    />
+  <div
+    class="post-tile"
+    v-on:click="$router.push({ name: 'PostDetail', params: { id: post.id } })"
+  >
+      <img
+        v-if="post.preview"
+        class="photo"
+        :src="post.preview"
+        alt=""
+      />
+      <img
+        v-else
+        class="photo"
+        :src="require(`@/assets/images/home2.png`)"
+        alt=""
+      />
     <div class="text-container">
       {{ post.title }}
     </div>
@@ -19,9 +29,7 @@ export default {
     post: Object,
   },
   data() {
-    return {
-      uriPre: "",
-    };
+    return {};
   },
   methods: {},
 };
@@ -33,16 +41,22 @@ export default {
   border-radius: 7px;
   cursor: pointer;
   border-style: solid;
-  border-width: 1px;
+  border-width: 0.5px;
   border-color: #cacaca;
+
+  /* aby text-container zabíral plnou výšku */
+  display: flex;
+  flex-direction: column;
 }
 
 .post-tile:hover {
-  box-shadow: 1.5px 1.5px rgb(207, 207, 207);
+  transform: scale(1.02);
 }
 
 .photo {
+  height: 200px;
   width: 100%;
+  object-fit: cover; /* vyplnění obrázku */
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
 }
@@ -51,6 +65,10 @@ export default {
   color: var(--black);
   text-align: center;
   font-size: 1em;
-  padding: 5px 4px;
+  padding: 10px 8px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
