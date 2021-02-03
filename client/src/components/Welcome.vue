@@ -2,21 +2,22 @@
   <div class="welcome">
     <img class="photo" src="../assets/images/profile1.jpg" alt="" />
     <p class="title">Vítejte na mém webu! Jmenuji se Adam Hrouda.</p>
-    <div class="text-container">
-      <p class="desc">
-        Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel
-        sapien. Fusce aliquam vestibulum ipsum. Etiam neque. Proin in tellus sit
-        amet nibh dignissim sagittis. Class aptent taciti sociosqu ad litora
-        torquent per conubia nostra, per inceptos hymenaeos. Proin pede metus,
-        vulputate nec, fermentum fringilla, vehicula vitae, justo. Quisque
-        porta. Mauris metus.
-      </p>
-    </div>
+    <p class="desc">
+        Jsem studentem informatiky na České zemědělské univerzitě. Z tohoto
+        oboru se zajímám především o programování, které je zároveň hlavní
+        náplní mé současné brigády. Pokud zrovna neprogramuji, ať už z radosti
+        nebo z povinnosti, tak se rád vydám do přírody. V zimě si to svištím na
+        běžkách a v létě na kole nebo se vydávám na vícedenní pochody s mou drahou polovičkou.
+    </p>
     <div>
       <a class="link" target="_blank" href="//www.github.com/hroudaadam">
         <font-awesome-icon :icon="['fab', 'github']" />
       </a>
-      <a class="link" target="_blank" href="//www.linkedin.com/in/adam-hrouda-574140175/">
+      <a
+        class="link"
+        target="_blank"
+        href="//www.linkedin.com/in/adam-hrouda-574140175/"
+      >
         <font-awesome-icon :icon="['fab', 'linkedin-in']" />
       </a>
       <a class="link" target="_blank" href="//www.instagram.com/adam_hrouda/">
@@ -67,9 +68,6 @@ export default {
   color: var(--color-2);
   margin: 0 0 20px 0;
   line-height: 1.5rem;
-}
-
-.text-container {
   text-align: center;
   max-width: 690px;
 }

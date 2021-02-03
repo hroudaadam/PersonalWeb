@@ -1,42 +1,32 @@
-var posts = [
-    {
-        postId: 1,
-        userId: 1,
-        title: 'Krušné hory',
-        content: 'Text text text'
-    },
-    {
-        postId: 2,
-        userId: 1,
-        title: 'Vysoké Tatry',
-        content: 'Text text text text'
-    }
-];
+const db = require("../db");
 
-var nextPostId = 3;
+async function getList() {
+    var result = await db.query(
+        "SELECT id, title, preview FROM post;"
+    );
 
-function getAll() {
-    return posts;
+    return result.rows;
 }
 
-function get(id) {
-    var post = posts.find(po => po.postId === id);
-    return post;
+async function get(id) {
+    var result = await db.query(
+        "SELECT * FROM post WHERE id=$1;",
+        [id]
+    );
+
+    return result.rows[0];
 }
 
-function create(model, userId) {
-    var newPost = {
-        postId: nextPostId,
-        userId: userId,
-        title: model.title,
-        content: model.content
-    };
-    posts.push(newPost);
-    nextPostId++;
-    return posts.find(po => po.postId == newPost.postId);
+async function create(model) {
+    var result = await db.query(
+        "INSERT INTO post (title, content, preview) VALUES ($1, $2, $3) RETURNING id, title;",
+        [model.title, model.content, model.preview]
+    );
+
+    return result.rows[0];
 }
 
 
 module.exports = {
-    getAll, get, create
+    getList, get, create
 }

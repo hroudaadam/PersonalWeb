@@ -1,24 +1,6 @@
-# BACKEND
-## MODULY
-- npm install jsonwebtoken
-- npm install dotenv
-- npm install cors
+# hrouda.adam
 ## ANALÝZA
-- nefunkční požadavky
--   front end
-    - Vue.js
-    - vlastní CSS
-- back end
-    - JS
-    - postgreSQL
-- funkční požadavky
-    - úvod 
-        - hlavička
-        - nedávné příspěvky
-    - o mně
-        - CV
-    - blog
-        - tagy
-        - wysiwyg
-    - hry a blbůstky
-    - public API
+- technologie
+    - BE: node.js, postgresql
+    - FE: vue.js, vlastní CSS
+- stránky: úvod, o mně ,příspěvky, hřiště, API

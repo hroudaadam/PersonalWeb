@@ -1,36 +1,38 @@
 <template>
   <div class="detail-container" v-if="post">
     <PageHeader>
-      {{post.title}}
+      {{ post.title }}
     </PageHeader>
-    <div class="ql-editor" v-html="post.content">
-    </div>
+    <div class="ql-editor" v-html="post.content"></div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import apiService from "../helpers/apiService";
 import PageHeader from "@/components/PageHeader";
 
 export default {
   name: "PostDetail",
   components: {
-    PageHeader
+    PageHeader,
   },
   props: {
-    id: Number,
+    postId: Number,
   },
   data() {
     return {
-      post: null
+      post: null,
     };
-  },
-  computed: {
-    ...mapGetters(["getPostById"])
   },
   methods: {
     getPost() {
-      this.post = this.getPostById(this.id);
+      this.post = null;
+      apiService
+        .get("/posts/" + this.postId.toString())
+        .then((res) => {
+          this.post = res;
+        })
+        .catch(() => {});
     },
   },
   mounted() {
@@ -44,6 +46,5 @@ export default {
   max-width: 800px;
   margin: 0 auto;
 }
-
 </style>
 

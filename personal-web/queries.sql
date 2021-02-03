@@ -1,0 +1,8 @@
+CREATE DATABASE personalweb;
+
+CREATE TABLE IF NOT EXISTS post (
+   id INT GENERATED ALWAYS AS IDENTITY,
+   title VARCHAR(128) NOT NULL,
+   content TEXT NOT NULL,
+   preview TEXT NOT NULL
+);

@@ -6,20 +6,25 @@ const { authorize } = require('../helpers/jwtAuthorizeMiddleware');
 const { roles } = require('../helpers/enums');
 
 
-router.get('/', function (req, res, next) {
-  var response = postService.getAll();
+router.get('/', async function (req, res, next) {
+  var response = await postService.getList();
   res.json(response);
 });
 
-router.get('/:id', function (req, res, next) {
+router.get('/:id', async function (req, res, next) {
   var id = parseInt(req.params.id);
-  var response = postService.get(id);
+  var response = await postService.get(id);
   res.json(response);
 });
 
-router.post('/', authorize(roles.Admin), function (req, res, next) {
-  var response = postService.create(req.body, req.user.userId);
+router.post('/', async function (req, res, next) {
+  var response = await postService.create(req.body);
   res.json(response);
 });
+
+// router.post('/', authorize(roles.Admin), function (req, res, next) {
+//   var response = postService.create(req.body, req.user.userId);
+//   res.json(response);
+// });
 
 module.exports = router;

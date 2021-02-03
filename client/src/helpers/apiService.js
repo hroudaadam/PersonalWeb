@@ -60,7 +60,7 @@ async function httpRequest(method, specUrl, body=null)
     }
 }
 
-function raiseError(errObj) {
+function raiseError(/*errObj*/) {
     // store.commit('setErrorMsg', errObj);
     throw new Error();
 }

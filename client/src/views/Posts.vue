@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import PostTile from "@/components/PostTile";
-import { mapState } from "vuex";
-import PageHeader from "@/components/PageHeader";
+import PostTile from "../components/PostTile";
+import PageHeader from "../components/PageHeader";
+import apiService from "../helpers/apiService";
 
 export default {
   name: "Posts",
@@ -32,13 +32,23 @@ export default {
   },
   data() {
     return {
+      posts: []
     };
   },
   methods: {
+    getPosts() {
+      this.posts = [];
+      apiService.get("/posts")
+      .then((res) => {
+        this.posts = res;
+      })
+      .catch(() => {});
+    }
   },
-  mounted() {},
+  mounted() {
+    this.getPosts();
+  },
   computed: {
-    ...mapState(["posts"])
   },
 };
 </script>

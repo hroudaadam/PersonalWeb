@@ -19,7 +19,7 @@
         />
       </div>
       <Button class="mr-2" v-on:click="selectPreview()">Vybrat náhled</Button>
-      <Button class="mr-2" v-on:click="send()">Odeslat</Button>
+      <Button class="mr-2" v-on:click="createPost()">Odeslat</Button>
     </div>
   </div>
 </template>
@@ -28,12 +28,12 @@
 import { mapGetters, mapActions } from "vuex";
 import PageHeader from "@/components/PageHeader";
 import Button from "@/components/Button";
-
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
 import { quillEditor } from "vue-quill-editor";
 import resizebase64  from "resize-base64";
+import apiService from "@/helpers/apiService";
 
 export default {
   name: "PostCreate",
@@ -76,10 +76,19 @@ export default {
   },
   methods: {
     ...mapActions(["addPost"]),
-    send() {
+    createPost() {
+      apiService.post("/posts", this.post)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+
       this.post.content = this.$refs.myQuillEditor.quill.root.innerHTML.trim();
       this.post.preview = resizebase64(this.post.preview, 300, 300);
       this.addPost(this.post);
+
       this.$router.push({ name: "Posts" });
     },
     selectPreview() {

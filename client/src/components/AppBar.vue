@@ -6,18 +6,42 @@
       </span>
 
       <nav class="nav">
-        <router-link class="nav-item" to="/about" active-class="active"
+        <router-link
+          class="nav-item nav-item__text"
+          :to="{ name: 'About' }"
+          active-class="active"
           >O mně</router-link
         >
-        <router-link class="nav-item" to="/posts" active-class="active"
+
+        <router-link
+          class="nav-item nav-item__text"
+          :to="{ name: 'Posts' }"
+          active-class="active"
           >Příspěvky</router-link
         >
-        <router-link class="nav-item" to="/playground" active-class="active"
+
+        <router-link
+          class="nav-item nav-item__text disabled"
+          :to="{ name: 'Home' }"
           >Hřiště</router-link
         >
-        <router-link class="nav-item" to="/api" active-class="active"
+
+        <router-link
+          class="nav-item nav-item__text disabled"
+          :to="{ name: 'Home' }"
           >API</router-link
         >
+
+        <router-link
+          v-if="false"
+          class="nav-item nav-item__icon"
+          :to="{ name: 'Home' }"
+        >
+          <font-awesome-icon :icon="['fas', 'sign-in-alt']" />
+        </router-link>
+        <router-link class="nav-item nav-item__icon" :to="{ name: 'Home' }">
+          <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
+        </router-link>
       </nav>
     </div>
   </div>
@@ -75,22 +99,42 @@ export default {
 
 .nav {
   display: flex;
+  height: 100%;
   justify-content: space-around;
+  align-items: center;
   width: 300px;
 }
 
 .nav-item {
   font-size: 0.9rem;
-  display: block;
-  text-decoration: none;
+  height: 27px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.nav-item:hover {
-  font-weight: 700;
+.nav-item__icon {
+  font-size: 1rem;
 }
 
+.nav-item__text {
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+.nav-item__text:hover,
 .active {
-  font-weight: 700;
+  border-bottom-color: var(--color-w);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: var(--color-lg);
 }
 
 @media screen and (max-width: 550px) {

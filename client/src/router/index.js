@@ -31,7 +31,7 @@ Vue.use(VueRouter);
     component: PostCreate
   },
   {
-    path: '/posts/:id',
+    path: '/posts/:postId',
     name: 'PostDetail',
     component: PostDetail,
     props: true

@@ -1,7 +1,7 @@
 <template>
   <div
     class="post-tile"
-    v-on:click="$router.push({ name: 'PostDetail', params: { id: post.id } })"
+    v-on:click="$router.push({ name: 'PostDetail', params: { postId: post.id } })"
   >
       <img
         v-if="post.preview"

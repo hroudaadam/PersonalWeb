@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    baseApiUrl: 'http://192.168.0.103:3000/api',
+    baseApiUrl: 'http://localhost:3000/api',
     userRoles: {
       admin: "admin",
       user: "user"
