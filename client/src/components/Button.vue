@@ -1,5 +1,5 @@
 <template>
-    <button class="button" v-on:click="$emit('click')">
+    <button class="button" v-bind:class="[block ? 'block' : '']" v-on:click="$emit('click')">
         <slot></slot>
     </button>
 </template>
@@ -9,6 +9,7 @@ export default {
   name: "Button",
   components: {},
   props: {
+      block: Boolean
   },
   data() {
     return {
@@ -27,13 +28,14 @@ export default {
     border-radius: 3px;
     background-color: var(--color-4);
     color: var(--color-w);
-
-    /* width: 200px;
-    height: 40px; */
 }
 
 .button:focus {
     outline: none;
+}
+
+.block {
+    width: 100%;
 }
 
 .button:active {

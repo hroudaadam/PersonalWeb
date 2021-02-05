@@ -1,38 +1,36 @@
 <template>
   <div>
     <PageHeader> Nový příspěvek </PageHeader>
-    <div class="form-container">
+    <div class="new-post-form body-smaller">
       <div class="label">Nadpis</div>
       <input class="input" v-model="post.title" placeholder="" />
-      <div class="label">Kategorie</div>
+      <!-- <div class="label">Kategorie</div>
       <select class="input">
         <option value="travel">Cestování</option>
         <option value="personal">Osobní</option>
-      </select>
+      </select> -->
       <div class="label">Obsah</div>
-      <div class="content-editor">
-        <quillEditor
-          ref="myQuillEditor"
-          v-model="post.content"
-          :options="contentEditorOption"
-          tabindex="-1"
-        />
+      <quillEditor
+        ref="myQuillEditor"
+        v-model="post.content"
+        :options="contentEditorOption"
+      />
+      <div>
+        <Button class="mr-2" v-on:click="selectPreview()">Vybrat náhled</Button>
+        <Button class="mr-2" v-on:click="createPost()">Odeslat</Button>
       </div>
-      <Button class="mr-2" v-on:click="selectPreview()">Vybrat náhled</Button>
-      <Button class="mr-2" v-on:click="createPost()">Odeslat</Button>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
 import PageHeader from "@/components/PageHeader";
 import Button from "@/components/Button";
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
 import { quillEditor } from "vue-quill-editor";
-import resizebase64  from "resize-base64";
+import resizebase64 from "resize-base64";
 import apiService from "@/helpers/apiService";
 
 export default {
@@ -65,7 +63,7 @@ export default {
               [{ list: "ordered" }, { list: "bullet" }],
             ],
             handlers: {
-              image: this.imageHandler
+              image: this.imageHandler,
             },
           },
         },
@@ -75,21 +73,16 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["addPost"]),
     createPost() {
-      apiService.post("/posts", this.post)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-
       this.post.content = this.$refs.myQuillEditor.quill.root.innerHTML.trim();
       this.post.preview = resizebase64(this.post.preview, 300, 300);
-      this.addPost(this.post);
 
-      this.$router.push({ name: "Posts" });
+      apiService
+        .post("/posts", this.post)
+        .then(() => {
+          this.$router.push({ name: "Posts" });
+        })
+        .catch(() => {});
     },
     selectPreview() {
       console.log(this.$refs.myQuillEditor.quill.root.innerHTML.trim());
@@ -106,7 +99,7 @@ export default {
         reader.readAsDataURL(input.files[0]);
         reader.onload = function () {
           var range = quill.getSelection();
-          quill.insertEmbed(range.index, 'image', reader.result);
+          quill.insertEmbed(range.index, "image", reader.result);
           component.post.preview = reader.result;
         };
         reader.onerror = function (error) {
@@ -115,31 +108,18 @@ export default {
       };
       input.click();
       input.remove();
-    }
-  },
-  computed: {
-    ...mapGetters("authentication", ["isAdminLogged"]),
+    },
   },
   mounted() {},
 };
 </script>
 
 <style scoped>
+
 .label {
   font-size: 0.9rem;
   margin: 0 0 2px 0;
   color: var(--color-1);
-}
-
-.form-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.content-editor {
-  height: calc(100vh - 300px);
-  max-height: 700px;
-  margin: 0 0 10px 0;
 }
 
 .input {
@@ -155,19 +135,33 @@ export default {
   width: 100%;
 }
 
+.new-post-form {
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* wrapper */
+.quill-editor {
+  min-height: 300px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 0 10px 0;
+}
+
+  /* editor samotný */
+.ql-container {
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+}
+
 select {
   outline: none;
   padding: 5px;
   border: none;
 }
-
-@media screen and (max-height: 550px) {
-  .content-editor {
-    height: 250px;
-    margin: 0 0 10px 0;
-  }
-}
-</style>
-
-<style>
 </style>

@@ -8,13 +8,6 @@
       <nav class="nav">
         <router-link
           class="nav-item nav-item__text"
-          :to="{ name: 'About' }"
-          active-class="active"
-          >O mně</router-link
-        >
-
-        <router-link
-          class="nav-item nav-item__text"
           :to="{ name: 'Posts' }"
           active-class="active"
           >Příspěvky</router-link
@@ -32,16 +25,18 @@
           >API</router-link
         >
 
-        <router-link
-          v-if="false"
-          class="nav-item nav-item__icon"
-          :to="{ name: 'Home' }"
-        >
-          <font-awesome-icon :icon="['fas', 'sign-in-alt']" />
-        </router-link>
-        <router-link class="nav-item nav-item__icon" :to="{ name: 'Home' }">
-          <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
-        </router-link>
+        <IconButton
+          v-if="isLoggedIn"
+          :icon="['fas', 'sign-out-alt']"
+          size="l"
+          v-on:click="logout()"
+        ></IconButton>
+        <IconButton
+          v-else
+          :icon="['fas', 'sign-in-alt']"
+          size="l"
+          v-on:click="$router.push({ name: 'Login' })"
+        ></IconButton>
       </nav>
     </div>
   </div>
@@ -49,25 +44,27 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import router from "../router/index";
+import IconButton from "../components/IconButton";
 
 export default {
   name: "AppBar",
-  components: {},
+  components: {
+    IconButton,
+  },
   computed: {
-    ...mapGetters("authentication", ["isLogged"]),
+    ...mapGetters(["isLoggedIn"]),
   },
   methods: {
-    ...mapActions("authentication", ["storeLogout"]),
+    ...mapActions(["storeLogout"]),
     logout() {
       this.storeLogout();
-      router.push({ name: "Login" });
+      this.$router.push({ name: "Home" }).catch(() => {});
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 .appbar-wrapper {
   background-color: var(--color-1);
   display: flex;
@@ -113,8 +110,16 @@ export default {
   justify-content: center;
 }
 
+.nav-item:hover {
+  cursor: pointer;
+}
+
 .nav-item__icon {
-  font-size: 1rem;
+  font-size: 1.2rem;
+}
+
+.nav-item__icon:hover {
+  transform: scale(1.1);
 }
 
 .nav-item__text {

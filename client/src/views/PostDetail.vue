@@ -1,5 +1,5 @@
 <template>
-  <div class="detail-container" v-if="post">
+  <div class="body-smaller" v-if="post">
     <PageHeader>
       {{ post.title }}
     </PageHeader>
@@ -42,9 +42,5 @@ export default {
 </script>
 
 <style scoped>
-.detail-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
 </style>
 

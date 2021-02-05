@@ -3,8 +3,9 @@
 :root {
     --color-b: #000000;
     --color-w: #ffffff;
-    --color-lg: #c2c2c2;
-    --color-dg: #3d3d3d;
+    --color-lg: #cccccc;
+    --color-g: #888888;
+    --color-dg: #444444;
 
     --color-1: #0D1B2A;
     --color-2: #1B263B;
@@ -21,10 +22,21 @@ body {
     color: var(--color-b);
 }
 
+.content-s {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .mr-2 {
     margin-right: 5px;
 }
 
+.mr-5 {
+    margin-right: 15px;
+}
+
+
+/* nastavení QUILL editor + zobrazení v detailu */
 
 .ql-editor {
     font-family: var(--font-1) !important;
@@ -60,14 +72,3 @@ body {
     max-width: 400px !important;
     height: auto;
 }
-
-.quill-editor {
-    height: 100% !important;
-}
-
-.ql-container {
-    height: calc(100% - 41px) !important;
-}
-
-
-

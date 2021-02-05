@@ -3,15 +3,18 @@
     <PageHeader>
       Příspěvky
       <template v-slot:button>
-        <router-link :to="{ name: 'PostCreate' }" class="link">
-          <font-awesome-icon :icon="['far', 'plus-square']" />
-        </router-link>
+        <IconButton
+          :icon="['far', 'plus-square']"
+          size="xl"
+          v-if="isLoggedIn"
+          v-on:click="$router.push({ name: 'PostCreate' })"
+        ></IconButton>
       </template>
     </PageHeader>
 
     <div class="posts-grid">
       <PostTile
-        v-bind:key="post.id"
+        v-bind:key="post.postId"
         v-for="post in posts"
         v-bind:post="post"
       ></PostTile>
@@ -21,46 +24,52 @@
 
 <script>
 import PostTile from "../components/PostTile";
+import IconButton from "../components/IconButton";
 import PageHeader from "../components/PageHeader";
 import apiService from "../helpers/apiService";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Posts",
   components: {
     PageHeader,
     PostTile,
+    IconButton,
   },
   data() {
     return {
-      posts: []
+      posts: [],
     };
   },
   methods: {
     getPosts() {
       this.posts = [];
-      apiService.get("/posts")
-      .then((res) => {
-        this.posts = res;
-      })
-      .catch(() => {});
-    }
+      apiService
+        .get("/posts")
+        .then((res) => {
+          this.posts = res;
+        })
+        .catch(() => {});
+    },
   },
   mounted() {
     this.getPosts();
   },
   computed: {
+    ...mapGetters(["isLoggedIn"]),
   },
 };
 </script>
 
 <style scoped>
 .posts-grid {
+  margin: 30px 0 0 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px;
 }
 
-.link {
+.new-post-button {
   display: inline-block;
   font-size: 1.8rem;
   padding: 0 5px;
@@ -69,12 +78,12 @@ export default {
   margin: 0 5px;
 }
 
-.link:hover {
+.new-post-button:hover {
   outline: none;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-.link:focus {
+.new-post-button:focus {
   outline: none;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div
     class="post-tile"
-    v-on:click="$router.push({ name: 'PostDetail', params: { postId: post.id } })"
+    v-on:click="$router.push({ name: 'PostDetail', params: { postId: post.postId } })"
   >
       <img
         v-if="post.preview"
@@ -15,7 +15,7 @@
         :src="require(`@/assets/images/home2.png`)"
         alt=""
       />
-    <div class="text-container">
+    <div class="title">
       {{ post.title }}
     </div>
   </div>
@@ -37,12 +37,12 @@ export default {
 
 <style scoped>
 .post-tile {
-  background-color: var(--color-5);
-  border-radius: 7px;
+  color: var(--color-b);
   cursor: pointer;
-  border-style: solid;
+  /* border-radius: 7px; */
+  /* border-style: solid;
   border-width: 0.5px;
-  border-color: #cacaca;
+  border-color: #cacaca; */
 
   /* aby text-container zabíral plnou výšku */
   display: flex;
@@ -57,18 +57,17 @@ export default {
   height: 200px;
   width: 100%;
   object-fit: cover; /* vyplnění obrázku */
-  border-top-right-radius: 7px;
-  border-top-left-radius: 7px;
+  /* border-top-right-radius: 7px;
+  border-top-left-radius: 7px; */
 }
 
-.text-container {
+.title {
   color: var(--black);
-  text-align: center;
-  font-size: 1em;
+  font-size: 1.2em;
   padding: 10px 8px;
   flex: 1;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 </style>

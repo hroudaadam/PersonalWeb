@@ -1,48 +1,48 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Home from '../views/Home';
-import About from '../views/About';
-import Posts from '../views/Posts';
-import PostDetail from '../views/PostDetail';
-import PostCreate from '../views/PostCreate';
-import NotFound from '../views/NotFound';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home";
+import Posts from "../views/Posts";
+import PostDetail from "../views/PostDetail";
+import PostCreate from "../views/PostCreate";
+import Login from "../views/Login";
+import NotFound from "../views/NotFound";
 
 Vue.use(VueRouter);
 
   const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About
-  },
-  {
-    path: '/posts',
-    name: 'Posts',
+    path: "/posts",
+    name: "Posts",
     component: Posts
   },
   {
-    path: '/posts/create',
-    name: 'PostCreate',
+    path: "/posts/create",
+    name: "PostCreate",
     component: PostCreate
   },
   {
-    path: '/posts/:postId',
-    name: 'PostDetail',
+    path: "/posts/:postId",
+    name: "PostDetail",
     component: PostDetail,
     props: true
   },
   {
-    path: '/not-found',
+    path: "/login",
+    name: "Login",
+    component: Login
+  },
+  {
+    path: "/not-found",
     name: "NotFound",
     component: NotFound
   },
   {
-    path: '*',
+    path: "*",
     redirect: {name: "NotFound"}
   }
 ];

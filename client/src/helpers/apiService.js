@@ -19,14 +19,15 @@ async function put(specUrl, body) {
 // general HTTP request
 async function httpRequest(method, specUrl, body=null)
 {
-    // store.commit('setLoading', true);
+    store.commit('setLoading', true);
 
     var stringBody = null;
     if (body) {
         stringBody = JSON.stringify(body, replacer)
     }
 
-    var response = await fetch(store.state.baseApiUrl + specUrl, {
+    var url = store.state.baseApiUrl + specUrl;    
+    var response = await fetch(url, {
         method: method,
         mode: "cors",
         headers: {
@@ -39,7 +40,7 @@ async function httpRequest(method, specUrl, body=null)
         raiseError({error: 'Vyskytla se chyba', detail: null});
     })
     .finally(() => {
-        // store.commit('setLoading', false);
+        store.commit('setLoading', false);
     });
 
     switch (response.status) {

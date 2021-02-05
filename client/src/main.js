@@ -11,8 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInstagram, faFacebook, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
-import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-library.add(faInstagram, faFacebook, faLinkedinIn, faGithub, faPlusSquare, faSignInAlt, faSignOutAlt);
+import { faSignInAlt, faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+library.add(faInstagram, faFacebook, faLinkedinIn, faGithub, faPlusSquare, faSignInAlt, faSignOutAlt, faPlus);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;

@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   .page-header {
     margin: 0 0 20px 0;
     display: flex;
@@ -25,7 +25,6 @@ export default {
   }
   .text {
     font-size: 1.8em;
-    text-align: center;
     font-weight: 500;
   }
 </style>
