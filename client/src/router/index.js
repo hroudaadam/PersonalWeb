@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home";
+import About from "../views/About";
 import Posts from "../views/Posts";
 import PostDetail from "../views/PostDetail";
 import PostCreate from "../views/PostCreate";
@@ -16,10 +17,15 @@ Vue.use(VueRouter);
     component: Home
   },
   {
+    path: "/about",
+    name: "About",
+    component: About
+  }, 
+  {
     path: "/posts",
     name: "Posts",
     component: Posts
-  },
+  }, 
   {
     path: "/posts/create",
     name: "PostCreate",

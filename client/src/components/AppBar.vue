@@ -8,6 +8,13 @@
       <nav class="nav">
         <router-link
           class="nav-item nav-item__text"
+          :to="{ name: 'About' }"
+          active-class="active"
+          >O mně</router-link
+        >
+
+        <router-link
+          class="nav-item nav-item__text"
           :to="{ name: 'Posts' }"
           active-class="active"
           >Příspěvky</router-link

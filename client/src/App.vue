@@ -30,6 +30,6 @@ export default {
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 15px 20px 15px;
+  padding: 25px 15px 20px 15px;
 }
 </style>

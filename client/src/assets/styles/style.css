@@ -44,8 +44,9 @@ body {
     color: var(--black) !important;
 }
 
-.ql-editort p {
-    margin-bottom: 5px;
+.ql-editor p {
+    margin-bottom: 10px !important;
+    text-indent: 1.6rem;
   }
   
 .ql-editor a {

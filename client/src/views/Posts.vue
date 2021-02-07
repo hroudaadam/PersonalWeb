@@ -12,18 +12,18 @@
       </template>
     </PageHeader>
 
-    <div class="posts-grid">
-      <PostTile
+    <div class="posts-list">
+      <PostItem
         v-bind:key="post.postId"
         v-for="post in posts"
         v-bind:post="post"
-      ></PostTile>
+      ></PostItem>
     </div>
   </div>
 </template>
 
 <script>
-import PostTile from "../components/PostTile";
+import PostItem from "../components/PostItem";
 import IconButton from "../components/IconButton";
 import PageHeader from "../components/PageHeader";
 import apiService from "../helpers/apiService";
@@ -33,7 +33,7 @@ export default {
   name: "Posts",
   components: {
     PageHeader,
-    PostTile,
+    PostItem,
     IconButton,
   },
   data() {
@@ -62,11 +62,10 @@ export default {
 </script>
 
 <style scoped>
-.posts-grid {
+.posts-list {
   margin: 30px 0 0 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
 .new-post-button {
