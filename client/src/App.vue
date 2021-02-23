@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <Loading v-if="this.loading"></Loading>
-    <AppBar></AppBar>
+    <!-- <AppBar></AppBar> -->
     <div class="content">
       <router-view></router-view>
     </div>
@@ -9,18 +8,14 @@
 </template>
 
 <script>
-import AppBar from "./components/AppBar";
-import Loading from "./components/Loading";
-import { mapState } from "vuex";
+// import AppBar from "./components/AppBar";
 
 export default {
   name: "App",
   components: {
-    AppBar,
-    Loading,
+    // AppBar,
   },
   computed: {
-    ...mapState(["loading", "errorMsg"]),
   },
   mounted() {},
 };

@@ -1,89 +1,98 @@
 <template>
-  <div class="content-s">
-    <div class="header">
-      <img class="photo" src="../assets/images/profile1.jpg" alt="" />
-      <div class="title-1">Vítejte na mém webu! Jmenuji se Adam Hrouda.</div>
-      <div class="desc">
-        Jsem studentem informatiky na České zemědělské univerzitě. Z tohoto
-        oboru se zajímám především o programování, které je zároveň hlavní
-        náplní mé současné brigády. Pokud zrovna neprogramuji, ať už z radosti
-        nebo z povinnosti, tak se rád vydám do přírody. V zimě si to svištím na
-        běžkách a v létě na kole nebo se vydávám na vícedenní pochody.
-      </div>
-      <div class="social-media-links">
-        <IconButton
-          class="mr-5"
-          :icon="['fab', 'github']"
-          size="xl"
-          v-on:click="redirect('https://www.github.com/hroudaadam/')"
-        ></IconButton>
-        <IconButton
-          class="mr-5"
-          :icon="['fab', 'linkedin-in']"
-          size="xl"
-          v-on:click="
-            redirect('https://www.linkedin.com/in/adam-hrouda-574140175/')
-          "
-        ></IconButton>
-        <IconButton
-          class="mr-5"
-          :icon="['fab', 'instagram']"
-          size="xl"
-          v-on:click="redirect('https://www.instagram.com/adam_hrouda/')"
-        ></IconButton>
-        <IconButton
-          :icon="['fab', 'facebook']"
-          size="xl"
-          v-on:click="redirect('https://www.facebook.com/adam.hrouda/')"
-        ></IconButton>
-      </div>
+  <div class="content-m">
+    <div class="photo-wrapper">
+      <img
+        class="photo mb-5"
+        src="../assets/images/profile1.jpg"
+        v-bind:class="modeSwitched ? 'photo--deactive' : 'photo--active'"
+        alt=""
+        v-on:click="switchMode"
+      />
+      <img
+        class="photo mb-5"
+        src="../assets/images/profile2.jpg"
+        v-bind:class="!modeSwitched ? 'photo--deactive' : 'photo--active'"
+        alt=""
+        v-on:click="switchMode"
+      />
     </div>
+    <ProfessionalInfo v-if="modeSwitched" class="info-content"></ProfessionalInfo>
+    <PersonalInfo v-else></PersonalInfo>
   </div>
 </template>
 
 <script>
-import IconButton from "../components/IconButton";
+import ProfessionalInfo from "../components/ProfessionalInfo";
+import PersonalInfo from "../components/PersonalInfo";
 
 export default {
   name: "Home",
   components: {
-    IconButton,
+    PersonalInfo,
+    ProfessionalInfo,
   },
   data() {
-    return {};
+    return {
+      modeSwitched: false,
+    };
   },
   methods: {
     redirect(link, target = "_blank") {
       window.open(link, target);
+    },
+    switchMode() {
+      this.modeSwitched = !this.modeSwitched;
     },
   },
 };
 </script>
 
 <style scoped>
-.header {
-  text-align: center;
-  margin: 0 0 150px 0;
+.info-content {
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+.photo-wrapper {
+  margin: 0 auto 0 auto;
+  position: relative;
+  height: 300px;
+  width: 300px;
 }
 
 .photo {
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  left: 0;
+
   border-radius: 50%;
-  margin: 0 auto 20px auto;
+  cursor: pointer;
+
+  transition: transform 2s, opacity 0.5s 0.35s;
 }
 
-.title-1 {
-  font-size: 2rem;
+.photo--active {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.photo--deactive {
+  opacity: 0;
+  transform: rotateY(180deg);
+}
+</style>
+
+<style>
+.title {
+  font-size: 4.5rem;
   margin: 0 0 10px 0;
 }
 
 .desc {
   color: var(--color-2);
-  margin: 0 0 20px 0;
-  line-height: 1.5rem;
-  max-width: 670px;
-  margin: 0 auto 20px auto;
+  text-align: left;
+  font-size: 1.5rem;
 }
 
 .social-media-links {
@@ -91,5 +100,4 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 </style>

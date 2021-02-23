@@ -2,10 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home";
 import About from "../views/About";
-import Posts from "../views/Posts";
-import PostDetail from "../views/PostDetail";
-import PostCreate from "../views/PostCreate";
-import Login from "../views/Login";
 import NotFound from "../views/NotFound";
 
 Vue.use(VueRouter);
@@ -21,27 +17,6 @@ Vue.use(VueRouter);
     name: "About",
     component: About
   }, 
-  {
-    path: "/posts",
-    name: "Posts",
-    component: Posts
-  }, 
-  {
-    path: "/posts/create",
-    name: "PostCreate",
-    component: PostCreate
-  },
-  {
-    path: "/posts/:postId",
-    name: "PostDetail",
-    component: PostDetail,
-    props: true
-  },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login
-  },
   {
     path: "/not-found",
     name: "NotFound",

@@ -6,67 +6,26 @@
       </span>
 
       <nav class="nav">
-        <router-link
+        <!-- <router-link
           class="nav-item nav-item__text"
           :to="{ name: 'About' }"
           active-class="active"
           >O mně</router-link
-        >
-
-        <router-link
-          class="nav-item nav-item__text"
-          :to="{ name: 'Posts' }"
-          active-class="active"
-          >Příspěvky</router-link
-        >
-
-        <router-link
-          class="nav-item nav-item__text disabled"
-          :to="{ name: 'Home' }"
-          >Hřiště</router-link
-        >
-
-        <router-link
-          class="nav-item nav-item__text disabled"
-          :to="{ name: 'Home' }"
-          >API</router-link
-        >
-
-        <IconButton
-          v-if="isLoggedIn"
-          :icon="['fas', 'sign-out-alt']"
-          size="l"
-          v-on:click="logout()"
-        ></IconButton>
-        <IconButton
-          v-else
-          :icon="['fas', 'sign-in-alt']"
-          size="l"
-          v-on:click="$router.push({ name: 'Login' })"
-        ></IconButton>
+        > -->
       </nav>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-import IconButton from "../components/IconButton";
 
 export default {
   name: "AppBar",
   components: {
-    IconButton,
   },
   computed: {
-    ...mapGetters(["isLoggedIn"]),
   },
   methods: {
-    ...mapActions(["storeLogout"]),
-    logout() {
-      this.storeLogout();
-      this.$router.push({ name: "Home" }).catch(() => {});
-    },
   },
 };
 </script>

@@ -14,11 +14,13 @@
     --color-5: #E0E1DD;
 
     --font-1: 'Roboto', sans-serif;
+    --spacer: 10px;
 
 }
 
 body {
     font-family: var(--font-1);
+    font-size: 1rem;
     color: var(--color-b);
 }
 
@@ -27,49 +29,88 @@ body {
     margin: 0 auto;
 }
 
+.mr-1 {
+    margin-right: calc(var(--spacer) * 0.25) !important;
+}
+
 .mr-2 {
-    margin-right: 5px;
+    margin-right: calc(var(--spacer) * 0.5) !important;
+}
+
+.mr-3 {
+    margin-right: calc(var(--spacer)) !important;
+}
+
+.mr-4 {
+    margin-right: calc(var(--spacer) * 1.5) !important;
 }
 
 .mr-5 {
-    margin-right: 15px;
+    margin-right: calc(var(--spacer) * 3) !important;
 }
 
+/* ML */
 
-/* nastavení QUILL editor + zobrazení v detailu */
-
-.ql-editor {
-    font-family: var(--font-1) !important;
-    font-size: 1rem !important;
-    color: var(--black) !important;
+.ml-1 {
+    margin-left: calc(var(--spacer) * 0.25) !important;
 }
 
-.ql-editor p {
-    margin-bottom: 10px !important;
-    text-indent: 1.6rem;
-  }
-  
-.ql-editor a {
-    color: #4648f7;
-    text-decoration: underline;
+.ml-2 {
+    margin-left: calc(var(--spacer) * 0.5) !important;
 }
 
-.ql-editor pre {
-    font-size: 1.2em;
-    background-color: inherit !important;
-    color: var(--color-b) !important;
+.ml-3 {
+    margin-left: calc(var(--spacer)) !important;
 }
 
-.ql-editor .ql-video {
-    margin: 0 auto;
-    display: block;
-    width: 400px;
+.ml-4 {
+    margin-left: calc(var(--spacer) * 1.5) !important;
 }
 
-.ql-editor img {
-    margin: 10px auto;
-    display: block;
-    width: 100%;
-    max-width: 400px !important;
-    height: auto;
+.ml-5 {
+    margin-left: calc(var(--spacer) * 3) !important;
+}
+
+/* MT */
+
+.mt-1 {
+    margin-top: calc(var(--spacer) * 0.25) !important;
+}
+
+.mt-2 {
+    margin-top: calc(var(--spacer) * 0.5) !important;
+}
+
+.mt-3 {
+    margin-top: calc(var(--spacer)) !important;
+}
+
+.mt-4 {
+    margin-top: calc(var(--spacer) * 1.5) !important;
+}
+
+.mt-5 {
+    margin-top: calc(var(--spacer) * 3) !important;
+}
+
+/* MB */
+
+.mb-1 {
+    margin-bottom: calc(var(--spacer) * 0.25) !important;
+}
+
+.mb-2 {
+    margin-bottom: calc(var(--spacer) * 0.5) !important;
+}
+
+.mb-3 {
+    margin-bottom: calc(var(--spacer)) !important;
+}
+
+.mb-4 {
+    margin-bottom: calc(var(--spacer) * 1.5) !important;
+}
+
+.mb-5 {
+    margin-bottom: calc(var(--spacer) * 3) !important;
 }
