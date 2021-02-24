@@ -38,10 +38,11 @@ export default {
 <style scoped>
 .icon-button {
   font-size: 1rem;
+  transition: transform 0.2s ease-in;
 }
 
 .icon-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   cursor: pointer;
 }
 
@@ -54,6 +55,6 @@ export default {
 }
 
 .xl {
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 </style>

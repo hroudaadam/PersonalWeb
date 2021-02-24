@@ -14,6 +14,7 @@
     --color-5: #E0E1DD;
 
     --font-1: 'Roboto', sans-serif;
+    --space: 10px;
 
 }
 
@@ -27,14 +28,21 @@ body {
     margin: 0 auto;
 }
 
-.mr-2 {
-    margin-right: 5px;
+.mr-3 {
+    margin-right: var(--space) !important;
 }
 
 .mr-5 {
-    margin-right: 15px;
+    margin-right: calc(3*var(--space)) !important;
 }
 
+.mb-5 {
+    margin-bottom: calc(3*var(--space)) !important;
+}
+
+.mb-3 {
+    margin-bottom: var(--space) !important;
+}
 
 /* nastavení QUILL editor + zobrazení v detailu */
 

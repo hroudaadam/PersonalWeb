@@ -6,24 +6,24 @@
       </span>
 
       <nav class="nav">
-        <router-link
+        <!-- <router-link
           class="nav-item nav-item__text"
           :to="{ name: 'About' }"
           active-class="active"
           >O mně</router-link
-        >
+        > -->
 
         <router-link
           class="nav-item nav-item__text"
           :to="{ name: 'Posts' }"
           active-class="active"
-          >Příspěvky</router-link
+          >Blog</router-link
         >
 
         <router-link
           class="nav-item nav-item__text disabled"
           :to="{ name: 'Home' }"
-          >Hřiště</router-link
+          >Projekty</router-link
         >
 
         <router-link

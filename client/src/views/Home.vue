@@ -1,14 +1,10 @@
 <template>
   <div class="content-s">
     <div class="header">
-      <img class="photo" src="../assets/images/profile1.jpg" alt="" />
-      <div class="title-1">Vítejte na mém webu! Jmenuji se Adam Hrouda.</div>
-      <div class="desc">
-        Jsem studentem informatiky na České zemědělské univerzitě. Z tohoto
-        oboru se zajímám především o programování, které je zároveň hlavní
-        náplní mé současné brigády. Pokud zrovna neprogramuji, ať už z radosti
-        nebo z povinnosti, tak se rád vydám do přírody. V zimě si to svištím na
-        běžkách a v létě na kole nebo se vydávám na vícedenní pochody.
+      <img class="photo mb-3" src="../assets/images/profile1.jpg" alt="" />
+      <div class="title mb-3">Vítejte na mém webu!</div>
+      <div class="desc mb-5">
+        Jmenuji se Adam Hrouda. Studuji informatiku na České zemědělské univerzitě a přivydělávám si programováním. Ve volném čase se rád vydávám do lesů a hor. 
       </div>
       <div class="social-media-links">
         <IconButton
@@ -61,29 +57,25 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  text-align: center;
-  margin: 0 0 150px 0;
-}
-
 .photo {
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
   border-radius: 50%;
-  margin: 0 auto 20px auto;
+  margin: 0 auto;
+  display: block;
 }
 
-.title-1 {
-  font-size: 2rem;
-  margin: 0 0 10px 0;
+.title {
+  font-size: 4rem;
+  text-align: center;
 }
 
 .desc {
   color: var(--color-2);
-  margin: 0 0 20px 0;
-  line-height: 1.5rem;
-  max-width: 670px;
-  margin: 0 auto 20px auto;
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  text-align: left;
 }
 
 .social-media-links {
