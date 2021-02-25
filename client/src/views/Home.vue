@@ -1,52 +1,66 @@
 <template>
-  <div class="content-s">
-    <div class="header">
+  <div class="container-s">
+    <div class="header mb-5">
       <img class="photo mb-3" src="../assets/images/profile1.jpg" alt="" />
-      <div class="title mb-3">Vítejte na mém webu!</div>
+      <div class="title h1 mb-3">Vítejte na mém webu!</div>
       <div class="desc mb-5">
-        Jmenuji se Adam Hrouda. Studuji informatiku na České zemědělské univerzitě a přivydělávám si programováním. Ve volném čase se rád vydávám do lesů a hor. 
+        Jmenuji se Adam Hrouda. Studuji informatiku na České zemědělské
+        univerzitě a zajímám se o programování. Ve volném čase se rád vydávám do
+        lesů a hor.
       </div>
-      <div class="social-media-links">
-        <IconButton
-          class="mr-5"
-          :icon="['fab', 'github']"
-          size="xl"
-          v-on:click="redirect('https://www.github.com/hroudaadam/')"
-        ></IconButton>
-        <IconButton
-          class="mr-5"
-          :icon="['fab', 'linkedin-in']"
-          size="xl"
-          v-on:click="
-            redirect('https://www.linkedin.com/in/adam-hrouda-574140175/')
-          "
-        ></IconButton>
-        <IconButton
-          class="mr-5"
-          :icon="['fab', 'instagram']"
-          size="xl"
-          v-on:click="redirect('https://www.instagram.com/adam_hrouda/')"
-        ></IconButton>
-        <IconButton
-          :icon="['fab', 'facebook']"
-          size="xl"
-          v-on:click="redirect('https://www.facebook.com/adam.hrouda/')"
-        ></IconButton>
-      </div>
+      <SocialMediaLinks class="mb-5"></SocialMediaLinks>
     </div>
+
+    <!-- <div class="area mb-5">
+      <div class="h2 mb-3">Schopnosti</div>
+      <ul class="skill-list">
+        <li>
+          <span class="skill-name">.NET</span>
+        </li>
+        <li>
+          <span class="skill-name">Vue.js</span>
+        </li>
+        <li>
+          <span class="skill-name">XXX</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="area mb-5">
+      <div class="h2 mb-3">Zkušenosti</div>
+      <ul class="skill-list">
+        <li class="skill"><span class="skill-name">Programátor</span>, VDT technology</li>
+        <li class="skill"><span class="skill-name">IT Tester</span>, Česká pojišťovna</li>
+        <li class="skill"><span class="skill-name">IT specialista HelpDesk</span>, ComPlus</li>
+      </ul>
+    </div>
+
+    <div class="h2 mb-3">Vzdělání</div>
+    <ul class="skill-list">
+      <li>
+        <span class="skill-name"
+          >Gymnázium a střední odborná škola dr. Václava Šmejkala</span
+        >
+      </li>
+      <li>
+        <span class="skill-name">Česká zemědělská univerzita</span>
+      </li>
+    </ul> -->
   </div>
 </template>
 
 <script>
-import IconButton from "../components/IconButton";
+import SocialMediaLinks from "../components/SocialMediaLinks";
 
 export default {
   name: "Home",
   components: {
-    IconButton,
+    SocialMediaLinks,
   },
   data() {
-    return {};
+    return {
+      skillHidden: true
+    };
   },
   methods: {
     redirect(link, target = "_blank") {
@@ -57,6 +71,12 @@ export default {
 </script>
 
 <style scoped>
+
+.container-s {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .photo {
   height: 300px;
   width: 300px;
@@ -66,22 +86,33 @@ export default {
 }
 
 .title {
-  font-size: 4rem;
   text-align: center;
 }
 
 .desc {
-  color: var(--color-2);
-  max-width: 620px;
+  /* max-width: 620px; */
   margin: 0 auto;
   font-size: 1.5rem;
   text-align: left;
 }
 
-.social-media-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.skill-name {
+  font-weight: 600;
 }
 
+.skill {
+  transition: opacity 0.2s ease-in, height 1s ease;
+  height: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.skill-hidden {
+  /* display: none; */
+  opacity: 0;
+  height: 0;
+  /* width: 0; */
+}
+
+.skill-list {
+}
 </style>

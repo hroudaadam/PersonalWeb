@@ -3,6 +3,7 @@
     class="icon-button"
     v-on:click="$emit('click')"
     v-bind:class="[getClass]"
+    alt="test"
   >
     <font-awesome-icon :icon="[icon[0], icon[1]]" />
   </div>

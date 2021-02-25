@@ -10,9 +10,9 @@ import './assets/styles/reset.css';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInstagram, faFacebook, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
-import { faSignInAlt, faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
-library.add(faInstagram, faFacebook, faLinkedinIn, faGithub, faPlusSquare, faSignInAlt, faSignOutAlt, faPlus);
+import { faPlusSquare, faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faSignInAlt, faSignOutAlt, faPlus, faAngleDoubleDown, faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
+library.add(faInstagram, faFacebook, faLinkedinIn, faGithub, faPlusSquare, faSignInAlt, faSignOutAlt, faPlus, faEnvelope, faAngleDoubleDown, faAngleDoubleUp);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;

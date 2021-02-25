@@ -46,6 +46,8 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  transition: background-color 0.3s ease-in;
 }
 
 .post-item:last-of-type {
