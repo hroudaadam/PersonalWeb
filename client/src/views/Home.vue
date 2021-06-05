@@ -1,118 +1,72 @@
 <template>
-  <div class="container-s">
-    <div class="header mb-5">
-      <img class="photo mb-3" src="../assets/images/profile1.jpg" alt="" />
-      <div class="title h1 mb-3">Vítejte na mém webu!</div>
-      <div class="desc mb-5">
+  <div>
+    <v-layout
+      :align-center="true"
+      :column="true"
+      class="pa-5 full-height"
+      ref="home"
+    >
+      <v-img
+        class="rounded-circle"
+        aspect-ratio="1"
+        width="300"
+        height="300"
+        max-height="300"
+        src="../assets/images/profile1.jpg"
+      ></v-img>
+      <div class="mt-3 text-h3">Vítejte na mém webu!</div>
+      <div class="mt-3 c-body-text-1">
         Jmenuji se Adam Hrouda. Studuji informatiku na České zemědělské
         univerzitě a zajímám se o programování. Ve volném čase se rád vydávám do
         lesů a hor.
       </div>
-      <SocialMediaLinks class="mb-5"></SocialMediaLinks>
-    </div>
+    </v-layout>
 
-    <!-- <div class="area mb-5">
-      <div class="h2 mb-3">Schopnosti</div>
-      <ul class="skill-list">
-        <li>
-          <span class="skill-name">.NET</span>
-        </li>
-        <li>
-          <span class="skill-name">Vue.js</span>
-        </li>
-        <li>
-          <span class="skill-name">XXX</span>
-        </li>
-      </ul>
-    </div>
+    <div ref="exps">
+      <div class="light-blue darken-4 text-center py-5">
+        <span class="text-h4 white--text">Zkušenosti</span>
+      </div>
+      <div class="pa-5">
+        <EventCard>
+          <template v-slot:header>Programátor</template>
+          <template v-slot:subheader-1>VDT technology a.s.</template>
+          <template v-slot:subheader-2>01/2020 - 05/2021</template>
+        </EventCard>
 
-    <div class="area mb-5">
-      <div class="h2 mb-3">Zkušenosti</div>
-      <ul class="skill-list">
-        <li class="skill"><span class="skill-name">Programátor</span>, VDT technology</li>
-        <li class="skill"><span class="skill-name">IT Tester</span>, Česká pojišťovna</li>
-        <li class="skill"><span class="skill-name">IT specialista HelpDesk</span>, ComPlus</li>
-      </ul>
-    </div>
+        <EventCard>
+          <template v-slot:header>IT tester</template>
+          <template v-slot:subheader-1>Česká pojišťovna a.s.</template>
+          <template v-slot:subheader-2>03/2019 - 12/2019</template>
+        </EventCard>
 
-    <div class="h2 mb-3">Vzdělání</div>
-    <ul class="skill-list">
-      <li>
-        <span class="skill-name"
-          >Gymnázium a střední odborná škola dr. Václava Šmejkala</span
-        >
-      </li>
-      <li>
-        <span class="skill-name">Česká zemědělská univerzita</span>
-      </li>
-    </ul> -->
+        <EventCard>
+          <template v-slot:header>IT specialista</template>
+          <template v-slot:subheader-1>COM PLUS a.s.</template>
+          <template v-slot:subheader-2>02/2018 - 08/2018</template>
+        </EventCard>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import SocialMediaLinks from "../components/SocialMediaLinks";
+import EventCard from "../components/EventCard";
 
 export default {
   name: "Home",
   components: {
-    SocialMediaLinks,
-  },
-  data() {
-    return {
-      skillHidden: true
-    };
-  },
-  methods: {
-    redirect(link, target = "_blank") {
-      window.open(link, target);
-    },
+    EventCard,
   },
 };
 </script>
 
 <style scoped>
-
-.container-s {
-  max-width: 700px;
-  margin: 0 auto;
+.c-body-text-1 {
+  font-size: 1.4rem !important;
+  max-width: 470px;
 }
 
-.photo {
-  height: 300px;
-  width: 300px;
-  border-radius: 50%;
-  margin: 0 auto;
-  display: block;
-}
-
-.title {
-  text-align: center;
-}
-
-.desc {
-  /* max-width: 620px; */
-  margin: 0 auto;
-  font-size: 1.5rem;
-  text-align: left;
-}
-
-.skill-name {
-  font-weight: 600;
-}
-
-.skill {
-  transition: opacity 0.2s ease-in, height 1s ease;
-  height: 1.5rem;
-  font-size: 1.5rem;
-}
-
-.skill-hidden {
-  /* display: none; */
-  opacity: 0;
-  height: 0;
-  /* width: 0; */
-}
-
-.skill-list {
+.full-height {
+  min-height: calc(100vh) !important;
 }
 </style>
